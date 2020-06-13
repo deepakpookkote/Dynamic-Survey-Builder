@@ -7,6 +7,7 @@ const cors = require('cors');
 
 //Imported files
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use(cors());
 
 //Routes
 app.use('/api', authRoutes);
+app.use('/api', userRoutes);
 
 //Starting a server
 app.listen(port, () => {
