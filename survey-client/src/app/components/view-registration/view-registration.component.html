@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
   <h1>User Registrations</h1>
-  <div class="row">
+  <div class="row" *ngIf="registerData?.length>0; else noDataTemplate">
     <div class="col-sm-6"  *ngFor="let info of registerData">
       <div class="card" style="margin-bottom: 10px;">
         <div class="card-body">
@@ -12,3 +12,6 @@
     </div>
   </div>
 </div>
+<ng-template #noDataTemplate>
+  <h4 class="animated pulse text-center"  style="animation-duration: 1s;color:#999FBF"><i class="fa fa-frown-o"></i>&nbsp;No Registrations found</h4>
+</ng-template>

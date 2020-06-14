@@ -14,7 +14,7 @@ import { ActivatedRoute, Params, NavigationEnd, Router } from '@angular/router';
       <div class="form-group row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
-          <button type="submit" (click)="initRegistration()"  class="btn btn-primary">Register</button>
+          <button type="submit" [disabled]= "form.status !== 'VALID'" (click)="initRegistration()"  class="btn btn-primary">Register</button>
         </div>
       </div>
     </form>
@@ -35,7 +35,17 @@ export class DynamicFormBuilderComponent implements OnInit {
   ngOnInit() {
     let fieldsCtrls = {};
     for (let f of this.fields) {
-      fieldsCtrls[f.name] = new FormControl(f.value || '', Validators.required);
+      if(f.name === 'name') {
+        fieldsCtrls[f.name] = new FormControl(f.value || '', [Validators.required, Validators.minLength(5)]);
+      } else if (f.name === 'email') {
+        fieldsCtrls[f.name] = new FormControl(f.value || '', [Validators.required, Validators.email]);
+      }
+      else if (f.name === 'mobile') {
+        fieldsCtrls[f.name] = new FormControl(f.value || '', [Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')]);
+      }
+      else {
+        fieldsCtrls[f.name] = new FormControl(f.value || '', Validators.required);
+      }
     }
     this.form = new FormGroup(fieldsCtrls);
   }
