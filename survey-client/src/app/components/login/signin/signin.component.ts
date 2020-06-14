@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators, FormsModule, FormControl } from '@angular/forms';
 
-import {AuthenticationService} from '../authentication.service';
+import { AuthenticationService } from '../authentication.service';
 
 
 @Component({
@@ -42,7 +42,7 @@ export class SigninComponent implements OnInit {
     this.viewDiv.nativeElement.innerHTML = `<span>&copy;2020</span>`;
   }
 
- // convenience getter for easy access to form fields
+  // convenience getter for easy access to form fields
   get userLoginFromControl() { return this.userLoginForm.controls; }
 
   authenticateUser() {
@@ -50,18 +50,14 @@ export class SigninComponent implements OnInit {
       .pipe(first())
       .subscribe((data) => {
         console.log(data);
-        if(data.user.role === 0) {
+        if (data.user.role === 0) {
           this.router.navigate(['']);
-        } else {
-          this.router.navigate(['/admin']);
         }
       },
-      error => {
-        console.log(error);
-      });
+        error => {
+          console.log(error);
+        });
   }
-
-
 
   navigateToDashboard() {
     this.router.navigate(['']);

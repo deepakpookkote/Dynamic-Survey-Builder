@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <form [formGroup]="builderForm">
+                    <div class="form-group">
+                        <input type="text" formControlName="formName" name="formName" class="form-control"
+                            placeholder="Enter Form Name">
+                    </div>
+                    <div formArrayName="formFields">
+                        <div *ngFor="let comp of builderForm.get('formFields')['controls']; let i=index">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div [formGroupName]="i">
+                                            <label>Enter Field Name </label>
+                                            <input class="form-control" formControlName="enterFieldName" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div [formGroupName]="i">
+                                            <label>Enter Field Type </label>
+                                            <input class="form-control" formControlName="enterType" />
+                                        </div>
+                                    </div>
+                                    <span style="margin: 38px; clip-path: circle();">
+                                        <button style="color: red;" (click)="deleteFields(i)"> X </button>
+                                    </span>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </form>
+                <span>
+                    <button class="btn btn-primary" (click)="saveForm()"> Save Form </button>
+                </span>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <button class="form-save" (click)="addNewFormField()">Add new Field</button><br><br>
+        </div>
+    </div>
+</div>

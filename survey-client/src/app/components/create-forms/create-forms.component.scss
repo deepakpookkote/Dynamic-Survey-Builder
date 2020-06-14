@@ -1,0 +1,105 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: #F7F7F7;
+    margin-top: 100px;
+    padding: 30px;
+}
+
+.card{
+    width: 700px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 10px 10px 43px -9px rgba(0,0,0,0.25);
+    font-family: 'Roboto', sans-serif;
+}
+
+.card h2{
+    margin: 0px;
+    margin-bottom: 20px;
+}
+
+.label-input{
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-control{
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: rgb(208, 212, 226);
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form-control:focus{
+    transition: .25s ease-in;
+    outline: none;
+    border: 1px solid;
+    border-color: #436CFF;
+}
+
+.btn{
+    margin-top: 20px;
+    padding: 6px;
+    width: 100%;
+    border-radius: 5px;
+    align-items: center;
+    font-size: 18px;
+    background-color: #436CFF;
+    color: #ffffff;
+    border: 1px solid;
+    border-color: #436CFF;
+    cursor: pointer;
+}
+
+.btn:hover{
+    transition: .25s ease-in;
+    background-color: rgb(59, 99, 245);
+    color: #ffffff;
+    border: 1px solid;
+    border-color: rgb(59, 99, 245);
+}
+
+.btn:focus{
+    outline: none;
+    border: 1px solid;
+    border-color: #436CFF;
+}
+
+.disabled{
+    background-color: rgb(232, 237, 255);
+}
+
+.label-remember{
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.check{
+    display: inline-block;
+    cursor: pointer;
+}
+
+.check:focus{
+    outline: none;
+    border: 1px solid;
+}
+
+.form-save {
+    clip-path: ellipse();
+    padding: 10px;
+    background: #eeefee;
+    border: 1px solid beige;
+    cursor: pointer;
+}
