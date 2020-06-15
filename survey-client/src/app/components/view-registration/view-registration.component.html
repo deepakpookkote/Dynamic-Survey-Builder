@@ -6,7 +6,7 @@
       <div class="card" style="margin-bottom: 10px;">
         <div class="card-body">
           <h5 class="card-title"><a>Event Name: {{info.formName}}</a></h5>
-          <h5 class="card-title"><a>Name: {{info.formData.fullname}}</a></h5>
+          <h5 class="card-title"><a>Name: {{info.formData.fullname || info.formData.name}}</a></h5>
           <h6 class="card-subtitle mb-2 text-muted">Email: {{info.formData.email}}</h6>
           <p class="card-text">Mobile: {{info.formData.mobile}}</p>
       </div>
