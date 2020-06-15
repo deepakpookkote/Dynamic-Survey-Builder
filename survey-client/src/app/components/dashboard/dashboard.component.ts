@@ -61,6 +61,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/auth/login']);
   }
 
+  viewIndividualRegistrations(formId) {
+    this.router.navigate(['/view-form-info', formId]);
+  }
+
 
 
 }

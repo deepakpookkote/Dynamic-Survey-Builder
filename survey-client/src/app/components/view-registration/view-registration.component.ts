@@ -21,7 +21,8 @@ export class ViewRegistrationComponent implements OnInit {
       this.registerData = registerData['registrations'].map((item => {
         const data = {};
         data['id'] = item._id;
-        data['formId'] = item.formId;
+        data['formId'] = item.formId._id;
+        data['formName'] = item.formId.formName;
         data['formData'] = JSON.parse(item.formData);
         return data;
       }));

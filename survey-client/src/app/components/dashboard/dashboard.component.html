@@ -10,14 +10,14 @@
         <div class="row" *ngIf="formData?.length>0; else falsyTemplate">
             <div class="col-lg-4 col-md-6 d-flex" *ngFor="let form of formData;">
               <div class="blog-card w-100">
-                <div class="meta">
-                  <div class="photo"><i class="fas fa-sticky-note"></i></div>
-                </div>
                 <div class="description">
                   <h1>{{form.formName}}</h1>
-                  <p class="read-more" data-toggle="modal" data-target="#viewNotesModel" >
-                     <i style="cursor: pointer;" class="fas fa-sticky-note" (click)="generateAndShareUrl(form._id)">Share</i>
+                  <p class="read-more">
+                     <i style="cursor: pointer;" class="fas fa-share" (click)="generateAndShareUrl(form._id)"> Share</i>
                   </p>
+                  <p class="read-more">
+                    <i style="cursor: pointer;" class="fas fa-user" (click)="viewIndividualRegistrations(form._id)"> View</i>
+                 </p>
                 </div>
               </div>
             </div>

@@ -1,14 +1,15 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <h1>User Registrations</h1>
+<div class="container" style="margin-top: 100px;">
+  <h1>{{eventName}}<span *ngIf="eventName"> - Details</span></h1>
   <div class="row" *ngIf="registerData?.length>0; else noDataTemplate">
     <div class="col-sm-6"  *ngFor="let info of registerData">
       <div class="card" style="margin-bottom: 10px;">
         <div class="card-body">
           <h5 class="card-title"><a>Event Name: {{info.formName}}</a></h5>
-          <h5 class="card-title"><a>Name: {{info.formData.fullname}}</a></h5>
-          <h6 class="card-subtitle mb-2 text-muted">Email: {{info.formData.email}}</h6>
-          <p class="card-text">Mobile: {{info.formData.mobile}}</p>
+            <h5 class="card-title"><a>Name: {{info.formData.fullname}}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">Email: {{info.formData.email}}</h6>
+            <p class="card-text">Mobile: {{info.formData.mobile}}</p>
+          </div>
       </div>
     </div>
   </div>
