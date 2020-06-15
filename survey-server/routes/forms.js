@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { isSignedIn, isAuthenticated } = require('../controllers/auth');
-const { createForm, getAllForms } = require('../controllers/forms');
+const { createForm, getAllForms, getAllRegistrations, getAllRegistrationsByFormId } = require('../controllers/forms');
 const { getUserById } = require('../controllers/user');
 
 router.param('userId', getUserById);
@@ -12,7 +12,7 @@ const Register = require('../models/registration');
 
 router.post("/create-form/:userId", isSignedIn, isAuthenticated, createForm)
 
-router.get('/get-form', async(req, res) => {
+router.get('/get-form', async (req, res) => {
     const formId = req.query.id;
     const reqForm = await Form.findById(formId);
 
@@ -23,7 +23,7 @@ router.get('/get-form', async(req, res) => {
 router.get('/form/:userId/all', isSignedIn, isAuthenticated, getAllForms);
 
 
-router.post('/form/register', async(req, res) => {
+router.post('/form/register', async (req, res) => {
     const formData = new Register(req.body)
     try {
         await formData.save();
@@ -35,18 +35,9 @@ router.post('/form/register', async(req, res) => {
 })
 
 
-router.get('/form/register/:userId/all', async(req, res) => {
-    try {
-        const registrations = await Register.find()
-        if(!registrations) {
-            res.status(400).json({ status: 'error', message: "No registrations found" });
-        }
-        res.status(200).json({ message: 'success', registrations: registrations });
+router.get('/form/register/:userId/all', isSignedIn, isAuthenticated, getAllRegistrations);
 
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ status: 'error', message: "Unable to fetch registrations" });
-    }
-})
+
+router.get('/form/:formId/register/:userId/all', isSignedIn, isAuthenticated, getAllRegistrationsByFormId);
 
 module.exports = router;

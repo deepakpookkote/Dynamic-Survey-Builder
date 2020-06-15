@@ -1,5 +1,6 @@
 
 const Form = require('../models/forms');
+const Register = require('../models/registration');
 
 
 exports.createForm = async (req, res) => {
@@ -26,4 +27,35 @@ exports.getAllForms = async (req, res) => {
         res.status(500).json({ status: 'error', message: "Unable to fetch forms" });
     }
 };
+
+
+exports.getAllRegistrations =  async (req, res) => {
+    try {
+        const registrations = await Register.find().populate("formId")
+        if(!registrations) {
+            res.status(400).json({ status: 'error', message: "No registrations found" });
+        }
+        res.status(200).json({ message: 'success', registrations: registrations });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: 'error', message: "Unable to fetch registrations" });
+    }
+}
+
+
+exports.getAllRegistrationsByFormId = async (req, res) => {
+    const formId = req.params.formId
+    try {
+        const registrations = await Register.find({formId: formId}).populate("formId")
+        if(!registrations) {
+            res.status(400).json({ status: 'error', message: "No registrations found" });
+        }
+        res.status(200).json({ message: 'success', registrations: registrations });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ status: 'error', message: "Unable to fetch registrations" });
+    }
+}
 

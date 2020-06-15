@@ -19,6 +19,7 @@ import { GuestFormsComponent } from './components/guest-forms/guest-forms.compon
 import { FormDataComponent } from './components/guest-forms/form-data/form-data.component';
 import { ViewRegistrationComponent } from './components/view-registration/view-registration.component';
 import { SuccessWindowComponent } from './components/sucess-window/sucess-window.component';
+import { ViewFormRegistrationsComponent } from './components/view-form-registrations/view-form-registrations.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SuccessWindowComponent } from './components/sucess-window/sucess-window
     FormDataComponent,
     ViewRegistrationComponent,
     SuccessWindowComponent,
+    ViewFormRegistrationsComponent,
   ],
   imports: [
     BrowserModule,

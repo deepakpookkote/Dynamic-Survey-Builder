@@ -7,6 +7,7 @@ import { CreateFormsComponent } from './components/create-forms/create-forms.com
 import { GuestFormsComponent } from './components/guest-forms/guest-forms.component';
 import { ViewRegistrationComponent } from './components/view-registration/view-registration.component';
 import { SuccessWindowComponent } from './components/sucess-window/sucess-window.component';
+import { ViewFormRegistrationsComponent } from './components/view-form-registrations/view-form-registrations.component';
 import { from } from 'rxjs';
 
 
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'create', component: CreateFormsComponent, canActivate: [AuthGuard]},
   { path: 'generate/:id', component: GuestFormsComponent},
   { path: 'view-registrations', component: ViewRegistrationComponent, canActivate: [AuthGuard]},
+  { path: 'view-form-info/:id', component: ViewFormRegistrationsComponent, canActivate: [AuthGuard]},
   { path: 'success', component: SuccessWindowComponent},
   { path: 'auth', loadChildren: () => import('./components/login/login.module').then(m => m.LoginModule) },
   // otherwise redirect to home
